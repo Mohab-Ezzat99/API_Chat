@@ -2,23 +2,23 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:id="@+id/mainMenu_explore"
-        android:title="Explore"
+        android:title="@string/tit_explore"
         android:icon="@drawable/ic_explore"/>
 
     <item android:id="@+id/mainMenu_study"
-        android:title="Study Page"
+        android:title="@string/tit_study_page"
         android:icon="@drawable/ic_study_page"/>
 
     <item android:id="@+id/mainMenu_home"
-        android:title="Home"
+        android:title="@string/tit_home"
         android:icon="@drawable/ic_home"/>
 
     <item android:id="@+id/mainMenu_downloads"
-        android:title="Downloads"
+        android:title="@string/tit_downloads"
         android:icon="@drawable/ic_cloud_download"/>
 
     <item android:id="@+id/mainMenu_hub"
-        android:title="Hub"
+        android:title="@string/tit_hub"
         android:icon="@drawable/ic_hub"/>
 
 </menu>

@@ -5,14 +5,11 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.apichat.MainActivity;
 import com.example.apichat.R;
@@ -20,6 +17,7 @@ import com.example.apichat.adapters.MessageAdapter;
 import com.example.apichat.data.network.ApiServices;
 import com.example.apichat.data.network.RetrofitBuilder;
 import com.example.apichat.data.pojo.ScreenTwo;
+import com.example.apichat.databinding.FragmentChatRoomBinding;
 import com.squareup.picasso.Picasso;
 
 import retrofit2.Call;
@@ -31,32 +29,26 @@ public class ChatRoomFragment extends Fragment {
     private ApiServices apiServices;
     private Call<ScreenTwo> call;
 
-    private RecyclerView recyclerView;
+    FragmentChatRoomBinding fragmentChatRoomBinding;
     private MessageAdapter message_adapter;
-    private TextView tv_name;
-    private ImageView iv_pic;
 
     public ChatRoomFragment() {
         // Required empty public constructor
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_chat_room, container, false);
+        fragmentChatRoomBinding = FragmentChatRoomBinding.inflate(inflater, container, false);
+        return fragmentChatRoomBinding.getRoot();
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        //init views
-        tv_name = view.findViewById(R.id.message_tv_name);
-        iv_pic = view.findViewById(R.id.message_iv);
-        recyclerView = view.findViewById(R.id.message_recyclerView);
-        recyclerView.setHasFixedSize(true);
-
+        fragmentChatRoomBinding.messageRecyclerView.setHasFixedSize(true);
         view.findViewById(R.id.message_arrow).setOnClickListener(v -> MainActivity.navControllerMain.popBackStack());
 
         message_adapter = new MessageAdapter(getActivity());
@@ -64,18 +56,19 @@ public class ChatRoomFragment extends Fragment {
         call = apiServices.getData2();
         call.enqueue(new Callback<ScreenTwo>() {
             @Override
-            public void onResponse(Call<ScreenTwo> call, Response<ScreenTwo> response) {
+            public void onResponse(@NonNull Call<ScreenTwo> call, @NonNull Response<ScreenTwo> response) {
                 //init data
-                Picasso.with(getActivity()).load(Uri.parse(response.body().getPic())).into(iv_pic);
-                tv_name.setText(response.body().getName());
+                assert response.body() != null;
+                Picasso.get().load(Uri.parse(response.body().getPic())).into(fragmentChatRoomBinding.messageIv);
+                fragmentChatRoomBinding.messageTvName.setText(response.body().getName());
 
                 message_adapter.setPic(response.body().getPic());
                 message_adapter.setMyMessages(response.body().getMessages());
-                recyclerView.setAdapter(message_adapter);
+                fragmentChatRoomBinding.messageRecyclerView.setAdapter(message_adapter);
             }
 
             @Override
-            public void onFailure(Call<ScreenTwo> call, Throwable t) {
+            public void onFailure(@NonNull Call<ScreenTwo> call, @NonNull Throwable t) {
                 Toast.makeText(getActivity(), t.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });

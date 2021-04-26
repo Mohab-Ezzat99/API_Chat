@@ -12,11 +12,12 @@
         android:id="@+id/customChat_cardImage"
         android:layout_width="@dimen/_54sdp"
         android:layout_height="@dimen/_54sdp"
-        app:cardCornerRadius="@dimen/_30sdp"
+        app:cardCornerRadius="@dimen/_27sdp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
+            android:contentDescription="@string/txt_null"
             android:id="@+id/customChat_iv"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

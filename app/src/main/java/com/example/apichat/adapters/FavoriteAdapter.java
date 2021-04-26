@@ -36,7 +36,7 @@ public class FavoriteAdapter extends RecyclerView.Adapter<FavoriteAdapter.ViewHo
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Information d=infos.get(position);
         if(!d.getPic().isEmpty())
-            Picasso.with(context).load(Uri.parse(d.getPic())).into(holder.iv_pic);
+            Picasso.get().load(Uri.parse(d.getPic())).into(holder.iv_pic);
         holder.tv_name.setText(d.getName());
     }
 

@@ -44,7 +44,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
             holder.tv_move.setVisibility(View.GONE);
             holder.tv_white.setText(m.getMessage());
             if(!pic.isEmpty())
-                Picasso.with(context).load(Uri.parse(pic)).into(holder.iv);
+                Picasso.get().load(Uri.parse(pic)).into(holder.iv);
         }
     }
 

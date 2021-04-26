@@ -18,13 +18,16 @@
             android:layout_height="@dimen/_54sdp"
             android:layout_margin="@dimen/_16sdp"
             android:clipToPadding="true"
-            app:cardCornerRadius="@dimen/_30sdp"
+            app:cardCornerRadius="@dimen/_27sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias=".1"
+            app:layout_constraintVertical_bias=".05"
             app:layout_constraintStart_toEndOf="@+id/message_arrow"
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
+                android:contentDescription="@string/txt_null"
                 android:id="@+id/message_iv"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -34,6 +37,7 @@
         </androidx.cardview.widget.CardView>
 
         <ImageView
+            android:contentDescription="@string/txt_null"
             android:id="@+id/message_arrow"
             android:layout_width="@dimen/_30sdp"
             android:layout_height="@dimen/_30sdp"
@@ -124,11 +128,14 @@
                 android:layout_weight="2"
                 android:background="@drawable/shape_white_circle_fill"
                 android:ems="10"
+                android:hint="@string/hint_type_a_message"
                 android:inputType="textPersonName"
                 android:maxLength="15"
-                android:padding="@dimen/_8sdp" />
+                android:padding="@dimen/_8sdp"
+                android:importantForAutofill="no" />
 
             <ImageView
+                android:contentDescription="@string/txt_null"
                 android:id="@+id/message_iv_send"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

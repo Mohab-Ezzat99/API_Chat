@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -39,7 +38,7 @@ public class RecentAdapter extends RecyclerView.Adapter<RecentAdapter.ViewHolder
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Information d=infos.get(position);
         if(!d.getPic().isEmpty())
-            Picasso.with(context).load(Uri.parse(d.getPic())).into(holder.iv_pic);
+            Picasso.get().load(Uri.parse(d.getPic())).into(holder.iv_pic);
         holder.tv_name.setText(d.getName());
         holder.tv_message.setText(d.getMessage());
         holder.tv_time.setText(d.getTime());
@@ -48,7 +47,7 @@ public class RecentAdapter extends RecyclerView.Adapter<RecentAdapter.ViewHolder
             holder.tv_new.setText(String.valueOf(d.getNew()));
         }
         if(position%2==0) {
-            holder.constraint.setBackground(ContextCompat.getDrawable(context,R.drawable.shape_next_chat));
+            holder.constraint.setBackground(ContextCompat.getDrawable(context,R.drawable.shape_blue_low));
         }
         holder.name=d.getName();
     }

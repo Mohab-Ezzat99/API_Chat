@@ -6,4 +6,10 @@
     <string name="txt_select_contact">Select contact</string>
     <string name="txt_new_group">New group</string>
     <string name="txt_favorite_contacts">Favorite contacts</string>
+    <string name="hint_type_a_message">type a message</string>
+    <string name="tit_explore">Explore</string>
+    <string name="tit_study_page">Study Page</string>
+    <string name="tit_home">Home</string>
+    <string name="tit_downloads">Downloads</string>
+    <string name="tit_hub">Hub</string>
 </resources>

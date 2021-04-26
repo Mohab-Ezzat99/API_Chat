@@ -27,7 +27,7 @@
         android:layout_marginTop="@dimen/_8sdp"
         android:layout_marginEnd="@dimen/_8sdp"
         android:layout_marginRight="@dimen/_8sdp"
-        android:background="@drawable/shape_white_message"
+        android:background="@drawable/shape_blue_low"
         android:padding="@dimen/_8sdp"
         android:textColor="@color/black"
         app:layout_constraintEnd_toStartOf="@+id/message_cardImage"
@@ -47,6 +47,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <ImageView
+            android:contentDescription="@string/txt_null"
             android:id="@+id/message_iv"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
