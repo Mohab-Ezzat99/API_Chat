@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/mainMenu_explore"
+        android:title="Explore"
+        android:icon="@drawable/ic_explore"/>
+
+    <item android:id="@+id/mainMenu_study"
+        android:title="Study Page"
+        android:icon="@drawable/ic_study_page"/>
+
+    <item android:id="@+id/mainMenu_home"
+        android:title="Home"
+        android:icon="@drawable/ic_home"/>
+
+    <item android:id="@+id/mainMenu_downloads"
+        android:title="Downloads"
+        android:icon="@drawable/ic_cloud_download"/>
+
+    <item android:id="@+id/mainMenu_hub"
+        android:title="Hub"
+        android:icon="@drawable/ic_hub"/>
+
+</menu>
